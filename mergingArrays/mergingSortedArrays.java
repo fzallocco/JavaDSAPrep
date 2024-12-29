@@ -23,33 +23,6 @@ class mergingSortedArrays{
 	part 2 of 2 ^*/
 	public static void mergingSortedArrays(int[] nums1, int[] nums2, int m, int n)
 	{
-		/*case1: if m and n are 0, return empty list
-		if(m==0 && n==0)
-		{
-			System.out.println("Both n and m are 0, no resulting array\n");//keep empty list as is
-			System.out.println("");
-		}
-		//case2: if either m or n are 0, we return the sorted array whose length is greater than 0 as the resulting array
-		if(m>0 && n==0)
-		{
-			System.out.println("m != 0, nums1 is the resulting array");
-			//print out all integers inside array)
-			for(int i = 0; i<m; i++)
-			{
-				System.out.println(String.format("nums1[%d]: %d\n", i, nums1[i]));
-				System.out.println("");
-			}
-		}
-		if(n>0 && m==0)
-		{
-			System.out.println("n != 0, nums2 is the resulting array\n");
-			//print out all integers inside array)
-			for(int i = 0; i<n; i++)
-			{
-				System.out.println(String.format("nums2[%d]: %d\n", i, nums2[i]));
-				System.out.println("");
-			}
-		}
 		//case3: m and n are both greater than 0, we integrate either array into the other and return it as the resulting array*/
 		if((n>0 && m>0) && (n != m)){
 			System.out.println("n & m are +ve, resulting array's length: m+n, modified nums1 is:\n");
@@ -58,44 +31,37 @@ class mergingSortedArrays{
 			//if nums1[back] > nums2[back] insert nums1[back] into modifiedNums1[back]
 			//else insert nums2[back] into modifiedNums1[back]
 			int[] resultingArray = new int[newArraySize];
-			int k = newArraySize-1;
+			/*int k = newArraySize-1;
 			int i = m-1;
-			int j = n-1;
+			int j = n-1;*/
+			int k = 0; 
+			int i = 0;
+			int j = 0;
 			System.out.println(String.format("nums1's length: %d\n", m));
 			System.out.println(String.format("nums2's length: %d\n", n));
 			System.out.println(String.format("resulting array's length: %d\n", newArraySize));
-			while(i>=0 && j>=0)
+			/*while(i>=0 && j>=0)*/
+			while(i<m && j<n)
 			{
 				//nums2 = {-99, -8, -2, 0, 1, 2, 3, 8, 99}
 				//nums1 = {-1, 0, 1}
-				if(nums1[i] >= nums2[j])
+				if(nums1[i] <= nums2[j])
 				{
-					//i = 4, j = 2, K = 7, 1 >= 1 Yes => r[K] = n[i]
-					//i = 3, j = 2, K = 6, 0 >= 1 No => r[K] = n[j]
-					//i = 3, j = 1, K = 5, 0 >= 0 Yes => r[K] = n[i]
-					//i = 2, j = 1, K = 4, -2 >= 0 No => r[K] = n[j]
-					//i = 2, j = 0, K = 3, -2 >= -1 No => r[K] = n[j]
-					resultingArray[k--] = nums1[i--]; 
+					resultingArray[k++] = nums1[i++]; 
 				}else{
 					
-					resultingArray[k--] = nums2[j--];
+					resultingArray[k++] = nums2[j++];
 				}
 			}
-			
-			if(i>=0) 
-			{//in case nums1 is longer than nums2
-				while(k>= 0 && i >= 0)
-				{
-					resultingArray[k--] = nums1[i--];
-				}
+
+			while(i < m)
+			{
+				resultingArray[k++] = nums1[i++];
 			}
-			
-			if(j>=0)
-			{//in case nums2 is longer than nums1
-				while(k >= 0 && j >= 0)
-				{
-					resultingArray[k--] = nums1[j--];
-				}
+
+			while(j < n)
+			{
+				resultingArray[k++] = nums2[j++];
 			}
 			
 			for(int x = 0; x<newArraySize; x++)
@@ -121,8 +87,8 @@ class mergingSortedArrays{
 		int emptyArraySize = emptyArray.length;
 		int nonEmptyArraySize = nonEmptyArray.length;
 
-		int[] nums1 = {-99, -8, -2, 0, 1, 2, 3, 8, 99};
-		int[] nums2 = {-1, 0, 1};
+		int[] nums2 = {-99, -8, -2, 0, 1, 2, 3, 8, 99};
+		int[] nums1 = {-1, 0, 1};
 		int nums1Size = nums1.length;
 		int nums2Size = nums2.length;
 		
