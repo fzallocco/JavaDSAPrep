@@ -94,7 +94,7 @@ class mergingSortedArrays{
 			{//in case nums2 is longer than nums1
 				while(k >= 0 && j >= 0)
 				{
-					resultingArray[k--] = nums1[j--];
+					resultingArray[k--] = nums2[j--];
 				}
 			}
 			
@@ -121,8 +121,8 @@ class mergingSortedArrays{
 		int emptyArraySize = emptyArray.length;
 		int nonEmptyArraySize = nonEmptyArray.length;
 
-		int[] nums1 = {-99, -8, -2, 0, 1, 2, 3, 8, 99};
-		int[] nums2 = {-1, 0, 1};
+		int[] nums2 = {-99, -8, -2, 0, 1, 2, 3, 8, 99};
+		int[] nums1 = {-1, 0, 1};
 		int nums1Size = nums1.length;
 		int nums2Size = nums2.length;
 		
