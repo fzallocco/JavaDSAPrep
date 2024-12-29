@@ -23,14 +23,14 @@ class mergingSortedArrays{
 	part 2 of 2 ^*/
 	public static void mergingSortedArrays(int[] nums1, int[] nums2, int m, int n)
 	{
-		/*case1: if m and n are 0, return empty list*/
+		/*case1: if m and n are 0, return empty list
 		if(m==0 && n==0)
 		{
 			System.out.println("Both n and m are 0, no resulting array\n");//keep empty list as is
 			System.out.println("");
 		}
-		/*case2: if either m or n are 0, we return the sorted array whose length is greater than 0 as the resulting array*/
-		if(m!=0 && n==0)
+		//case2: if either m or n are 0, we return the sorted array whose length is greater than 0 as the resulting array
+		if(m>0 && n==0)
 		{
 			System.out.println("m != 0, nums1 is the resulting array");
 			//print out all integers inside array)
@@ -40,7 +40,7 @@ class mergingSortedArrays{
 				System.out.println("");
 			}
 		}
-		if(n!=0 && m==0)
+		if(n>0 && m==0)
 		{
 			System.out.println("n != 0, nums2 is the resulting array\n");
 			//print out all integers inside array)
@@ -50,9 +50,8 @@ class mergingSortedArrays{
 				System.out.println("");
 			}
 		}
-		/*case3: m and n are both greater than 0, we integrate either array into the other and return it as the resulting array*/
-		if(n>0 && m>0)
-		{
+		//case3: m and n are both greater than 0, we integrate either array into the other and return it as the resulting array*/
+		if((n>0 && m>0) && (n != m)){
 			System.out.println("n & m are +ve, resulting array's length: m+n, modified nums1 is:\n");
 			int newArraySize = n + m;
 			//check the back of each array
@@ -67,19 +66,15 @@ class mergingSortedArrays{
 			System.out.println(String.format("resulting array's length: %d\n", newArraySize));
 			while(i>=0 && j>=0)
 			{
-				/*nums1 = {-99, -8, -2, 0, 1, 2, 3, 8, 99}*/
-				/*nums2 = {-1, 0, 1}*/
+				//nums2 = {-99, -8, -2, 0, 1, 2, 3, 8, 99}
+				//nums1 = {-1, 0, 1}
 				if(nums1[i] >= nums2[j])
 				{
-					/*i = 8, j = 2, K = 11, 99 >= 1 Yes*/
-					/*i = 7, j = 2, K = 10, 8 >= 1 Yes*/
-					/*i = 6, j = 2, K = 9, 3 >= 1 Yes*/
-					/*i = 5, j = 2, K = 8, 2 >= 1 Yes*/
-					/*i = 4, j = 2, K = 7, 1 >= 1 Yes => r[K] = n[i]*/
-					/*i = 3, j = 2, K = 6, 0 >= 1 No => r[K] = n[j]*/
-					/*i = 3, j = 1, K = 5, 0 >= 0 Yes => r[K] = n[i]*/
-					/*i = 2, j = 1, K = 4, -2 >= 0 No => r[K] = n[j]*/
-					/*i = 2, j = 0, K = 3, -2 >= -1 No => r[K] = n[j]*/
+					//i = 4, j = 2, K = 7, 1 >= 1 Yes => r[K] = n[i]
+					//i = 3, j = 2, K = 6, 0 >= 1 No => r[K] = n[j]
+					//i = 3, j = 1, K = 5, 0 >= 0 Yes => r[K] = n[i]
+					//i = 2, j = 1, K = 4, -2 >= 0 No => r[K] = n[j]
+					//i = 2, j = 0, K = 3, -2 >= -1 No => r[K] = n[j]
 					resultingArray[k--] = nums1[i--]; 
 				}else{
 					
@@ -110,7 +105,7 @@ class mergingSortedArrays{
 			}
 		}
 	}
-	public static void mergingSortedLists(LinkedList<Integer>)
+	public static void mergingSortedLists()
 	{
 		
 	}
