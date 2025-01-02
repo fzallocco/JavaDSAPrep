@@ -71,9 +71,20 @@ class mergingSortedArrays{
 			}
 		}
 	}
-	public static void mergingSortedLists()
+	public static List mergingSortedLists(List<List<Integer>> listOfLists)
 	{
-		
+		List<Integer> result = new ArrayList<>();
+
+		//Flatten the list
+		for(List<Integer> list : listOfLists)
+		{
+			result.addAll(list);
+		}
+
+		//Sort the list
+		Collections.sort(result);
+
+		return result;
 	}
 	public static void main(String[] args)
 	{
@@ -97,5 +108,43 @@ class mergingSortedArrays{
 		mergingSortedArrays(a, b, aSize, bSize);
 		mergingSortedArrays(emptyArray, nonEmptyArray, emptyArraySize, nonEmptyArraySize);
 		mergingSortedArrays(nums1, nums2, nums1Size, nums2Size);
+
+		System.out.println("Printing out all test cases of Pt 2\n");
+		System.out.println("");
+		//create a klist of lists
+		List<List<Integer>> listOfLists = new ArrayList<>();
+		//Creating inner Lists
+		List<Integer> nums1List = new ArrayList<>();
+		for(int i = 0; i<nums1Size; i++) 
+		{ 
+			nums1List.add(nums1[i]);
+		}
+		List<Integer> nums2List = new ArrayList<>();
+		for(int i = 0; i<nums2Size; i++) 
+		{ 
+			nums2List.add(nums2[i]);
+		}
+		listOfLists.add(nums1List);
+		listOfLists.add(nums2List);
+
+		//Iterating through the list of lists before merging function
+		/*for(List<Integer> innerList : listOfLists)
+		{
+			for(Integer element : innerList)
+			{
+				System.out.println(String.format("List value: %d\n", element));
+				System.out.println("");
+			}
+		}*/
+
+		//Iterating through the list of lists after the merging function
+
+		List<Integer> sortedList = mergingSortedLists(listOfLists);
+
+		for(Integer num : sortedList)
+		{
+			System.out.println(String.format("List value: %d\n", num));
+		}
+
 	}
 }
