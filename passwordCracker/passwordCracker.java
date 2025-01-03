@@ -47,21 +47,21 @@ public class passwordCracker {
 
         StringBuilder result = new StringBuilder();
         int i = 0;
-
-        while (i < loginAttempt.length()) {
+        /*loginAttempt = "helloworld" & passwords = ["hello", "planet"]*/
+        while (i < loginAttempt.length()) { //i is updated to the last index of the first passowrd
             boolean matched = false;
 
-            for (String password : passwords) {
-                if (loginAttempt.startsWith(password, i)) {
-                    result.append(password).append(" ");
-                    i += password.length();
-                    matched = true;
-                    break;
+            for (String password : passwords) { //first inner test = hello, second inner test = planet
+                if (loginAttempt.startsWith(password, i)) { //if both login and passwords' first element match, if no match skip everything till next iteration
+                    result.append(password).append(" "); //append "hello" to result string
+                    i += password.length(); //i is updated to the total numbers of characters in the first password
+                    matched = true; //boolean is set to true
+                    break; //exits inner loop
                 }
             }
 
             // If no match was found at this position, the string cannot be fully resolved
-            if (!matched) {
+            if (!matched) { //if no match or no more matches, return wrong password
                 return "WRONG PASSWORD";
             }
         }
