@@ -10,6 +10,7 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
+/*HackerRank link: https://www.hackerrank.com/contests/math-495r-09-blitz-2/challenges/password-cracker/problem*/
 public class passwordCracker {
 
     public static String passwordCracker(List<String> passwords, String loginAttempt) {
