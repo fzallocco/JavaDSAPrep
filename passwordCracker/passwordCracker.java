@@ -47,7 +47,8 @@ public class passwordCracker {
 
         StringBuilder result = new StringBuilder();
         int i = 0;
-        /*loginAttempt = "helloworld" & passwords = ["hello", "planet"]*/
+        /*loginAttempt = "helloworld" & passwords = ["hello", "helloworld"]*/
+        //sort array of passwords from longest to shortest
         while (i < loginAttempt.length()) { //i is updated to the last index of the first passowrd
             boolean matched = false;
 
