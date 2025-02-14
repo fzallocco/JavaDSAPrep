@@ -38,7 +38,7 @@ class rankSort
 			numList.add(inputArray[i]);
 		}
 		
-		Collections.sort(numList); /*Ideally we do not want use Collections.sort() to sort the list but to facilitate the calculation of each list element's rank*/
+		Collections.sort(numList); /*Ideally we do not want to use Collections.sort() to sort the list but rather facilitate the calculation of each element's rank*/
 		
 		Map<Integer, Integer> integerMap = new HashMap<>();
 		
